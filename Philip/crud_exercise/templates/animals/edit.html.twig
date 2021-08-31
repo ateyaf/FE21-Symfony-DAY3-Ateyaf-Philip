@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="my-2 mx-auto w-75">
+    <hr />
+    <h2 class="text-center">Edit <em>{{ animal.name }}</em></h2>
+    <div class="d-flex flex-row justify-content-center">
+        <img class='img-square rounded-circle m-2' src="{{ asset("pictures/") ~ animal.picture }}" alt="{{animal.name}}">
+    </div>
+    {{form_start(form)}}
+    {{form_widget(form)}}
+    {{form_end(form)}}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="table-responsive my-2 mx-auto table-width">
+    <table class='table table-hover table-striped'>
+        <thead class='table-success'>
+            <tr>
+                {% for name in fieldnames %} <th>{{name}}</th> {% endfor %}
+                <th>More</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# id	picture	name	location	description	size	age	hobbies	breed	status	More	Adopt #}
+            {% for animal in animals %}
+                <tr>
+                    <td>{{animal.id}}</td>
+                    <td><img class='img-thumbnail' src="{{ asset("pictures/") ~ animal.picture  }}" alt='{{animal.name}}' /></td>
+                    <td>{{animal.name}}</td>
+                    <td>{{animal.location}}</td>
+                    <td>{{animal.description}}</td>
+                    <td>{{animal.size}}</td>
+                    <td>{{animal.age}}</td>
+                    <td>{{animal.hobbies}}</td>
+                    <td>{{animal.breed}}</td>
+                    <td>{{animal.status}}</td>
+                    <td>
+                        <a href="/animals/details/{{animal.id}}" class="btn btn-success my-1"><i class='fas fa-info-circle'></i></a>
+                        <a href="/animals/edit/{{animal.id}}" class="btn btn-primary my-1"><i class='fas fa-edit'></i></a>
+                        <a href="/animals/delete/{{animal.id}}" class="btn btn-danger my-1"><i class='fas fa-trash-alt'></i></a>       
+                    </td>
+
+                </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
